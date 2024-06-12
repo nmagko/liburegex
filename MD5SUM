@@ -1,0 +1,15 @@
+5ef6f9366f9d9996920e56ff59c3331d  ./README
+f77c21ba69ff6a90b3ec1ca2094e5147  ./aarray.c
+5d035cdfc0e49abed51632985201305e  ./samples/test.c
+255756263ac30cf45801ae6951988b42  ./samples/test.conf
+1aeaf00436aea0117f1cdfd75338489a  ./samples/Makefile
+6ba811f053e9091e2d4c994913f49fbd  ./samples/Makefile.cygwin32-static
+e647873dc9c4d68ab23b54fc93497b95  ./samples/ltest.c
+ff2ea338229be6911f78bad61d53506d  ./Makefile
+7f1cffdd670b57641144f505659e676d  ./uregex.c
+070b1249af095501fe325b012b877892  ./uconfi.h
+d32239bcb673463ab874e80d47fae504  ./COPYING
+5bd1248081b0623aa74ba2551817b02f  ./uregex.h
+44449a28c3fa7b3513f824a359baa401  ./aarray.h
+3f3846530269027ab139d58084060cbe  ./uconfi.c
+2d4a4559a3443cd52024b67cafa42121  ./Makefile.cygwin32-static
