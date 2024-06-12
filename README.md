@@ -20,6 +20,7 @@ expressions without thinking about complex structures and many stages.
 
 ### 1. HANDLING REGULAR EXPRESSIONS WITH FUNCTIONS
 
+```
 int m_rex (const char *src, const char *pattern, const char *opt)
 
   This function is for pattern matching in the _src_ source pointer with
@@ -35,7 +36,9 @@ int m_rex (const char *src, const char *pattern, const char *opt)
   It returns 1 if there is a coincidence and 0 if not.
   
     if ( m_rex ( src_text, "^test", "in" ) ) printf ("founded\n");
+```
 
+```
 char *s_rex (const char *src, const char *pattern, const char
 *replacement, const char *opt)
 	     
@@ -65,7 +68,9 @@ char *as_rex (char *src, const char *pattern, const char *replacement,
     /* removing alphanumeric occurrences */
     
     src_text = as_rex (src_text, "\\w", "", "g");
+```
     
+```
 char *y_rex (const char *src, const char *search, const char
 *replacement, const char *opt);
 	     
@@ -112,7 +117,9 @@ char *ay_rex (char *src, const char *search, const char *replacement,
     
   There are some macros defined as tr_rex and atr_rex that are the same
   like y_rex and ay_rex respectively.
+```
     
+```
 char **split (const char *pattern, const char *opt, const char *src, int
 *isa)
 
@@ -134,7 +141,9 @@ char **split (const char *pattern, const char *opt, const char *src, int
   will be returned in the double-pointer.
   
     char **strarray = split ( ":", "i", text, &count_strarray );
+```
 
+```
 char *join (char *separator, ...)
 
   This function puts together a list of strings into a single text
@@ -143,7 +152,9 @@ char *join (char *separator, ...)
 
     char *jointext = join (":", "user", "password", "uid", "gid",
                            "comment", "home", "shell", NULL);
+```
 
+```
 char *joindp (char *separator, char **dpstrings, int countdp)
 
   This function puts together a list of strings in double-pointer
@@ -152,6 +163,7 @@ char *joindp (char *separator, char **dpstrings, int countdp)
   strings of _dpstrings_ were joined.
   
     char *jointext = joindp (":", values, values_count);
+```
 
 ### 2. THE ASSOCIATIVE ARRAY FUNCTIONS
 
@@ -160,6 +172,7 @@ It is a set of functions for handling associative array structure
 value. The structure and functions are defined in the header file
 `aarray.h'.
 
+```
 struct AArray
 
   This is the data type used to represent a namespace of an associative
@@ -173,7 +186,9 @@ struct AArray
   long iaa
   
     It is used internally and represents the count of key-value pairs.
+```
   
+```
 struct AArray *new_aa ()
 
   This method initializes and returns a new AArray structure pointer. It
@@ -181,7 +196,9 @@ struct AArray *new_aa ()
   anymore.
   
     struct AArray *my_aa = new_aa();
+```
 
+```
 int put_aa (struct AArray *addr, const char *key, const char *value)
 
   It appends a key-value pair into the initialized AArray _addr_. If the
@@ -194,21 +211,27 @@ int put_aa (struct AArray *addr, const char *key, const char *value)
     put_aa (my_aa, "0003", "it is a number");
     
     put_aa (my_aa, "fuck off", "bad word");
+```
 
+```
 char *get_aa (const struct AArray *addr, const char *key)
 
   This function returns a string pointer to the value of the key. If the
   key doesn't exist and returns a NULL pointer.
   
     char *val = get_aa (my_aa, "year");
+```
 
+```
 int delete_aa (struct AArray *addr, const char *key)
 
   It gets rid key-value pair from AArray _addr_ structure and returns 1
   if it is successful and 0 if not.
   
     delete_aa (my_aa, "year");
+```
 
+```
 char **keys_aa (const struct AArray *addr, long *isa)
 
   It returns a list of strings containing all keys from the AArray
@@ -219,7 +242,9 @@ char **keys_aa (const struct AArray *addr, long *isa)
     long keys_count;
     
     char **keys = keys_aa (my_aa, &keys_count);
+```
 
+```
 char **values_aa (const struct AArray *addr, long *isa)
 
   It returns a list of strings containing all values of the AArray
@@ -230,20 +255,25 @@ char **values_aa (const struct AArray *addr, long *isa)
     long values_count;
     
     char **values = values_aa (my_aa, &values_count);
+```
 
+```
 void free_double_pointer (char **daddr, long isa)
 
   It gets rid of double pointer _daddr_ from memory as big as _isa_
   value.
   
     free_double_pointer (values, values_count);
+```
 
+```
 void destroy_aa (struct AArray *addr)
 
   It gets rid of AArray _addr_ structure. The key-value pairs will be
   clear from memory.
   
     destroy_aa (my_aa);
+```
 
 ### 3. UNIQUE CONFIGURATION READER
 
@@ -251,6 +281,7 @@ This is a function for reading simple configuration files that have a
 syntax like `key = value' or `key: value' in plain text files. Blank
 lines and characters after # ; or // will be ignored.
 
+```
 struct AArray *get_config (const char *path)
 
   This function is defined in the header file `uconfi.h'. It initializes
@@ -260,10 +291,11 @@ struct AArray *get_config (const char *path)
   passed to destroy_aa function when it is not needed anymore.
   
     struct AArray *my_config = get_config ("/etc/test.conf");
+```
 
 ### FREE DOCUMENTATION LICENSE
 
-Copyright (C) 2006,2016 Victor Clodoaldo Salas Pumacayo.
+Copyright (C) 2006,2016 Victor C Salas
 
   Permission is granted to copy, distribute, and/or modify this document
   under the terms of the GNU Free Documentation License, Version 1.3 or
